@@ -73,4 +73,9 @@ namespace UserApi.Services
             return _mapper.Map<UserResponse>(user);
         }
     }
+
+    public Task RegisterUser(Services.RegisterUserRequest registrationRequest)
+    {
+        throw new NotImplementedException();
+    }
 }
