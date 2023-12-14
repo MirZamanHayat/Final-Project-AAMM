@@ -8,7 +8,7 @@ using UserApi.Models;
 using UserApi.Repositories;
 using Xunit;
 
-namespace UserApi.Services
+namespace UserApiTests.Services
 {
     public class UserServiceTests
     {

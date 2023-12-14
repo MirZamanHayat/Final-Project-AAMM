@@ -18,9 +18,8 @@ namespace UserApi.Entities
         public DateTime? DateModified { get; set; }
         public DateTime? LastLogin { get; set; }
         public int? FailedLoginAttempts { get; set; }
-
-        // existing properties
-
         public string? TwoFactorSecretKey { get; set; }
+        public DateTime? LastLoginTime { get; set; }
     }
+
 }
