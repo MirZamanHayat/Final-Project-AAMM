@@ -1,0 +1,82 @@
+openapi: 3.0.0
+info:
+  title: User Service API
+  version: 1.0.0
+paths:
+  /auth/login:
+    post:
+      summary: Authenticate a user and return a token.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: The user's username.
+                password:
+                  type: string
+                  description: The user's password.
+      responses:
+        '200':
+          description: Successful authentication, returns a token.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                    description: The authentication token.
+        '401':
+          description: Unauthorized, invalid username or password.
+  
+  /users:
+    get:
+      summary: Retrieve a list of users.
+      responses:
+        '200':
+          description: Successfully retrieved the list of users.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+
+    post:
+      summary: Create a new user.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: User successfully created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Bad request, invalid user data.
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        email:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        password:
+          type: string
+        username:
+          type: string
+
